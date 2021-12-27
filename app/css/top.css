@@ -1,0 +1,83 @@
+body.top {
+  background-color: #8C9EFF; }
+  body.top .top-section {
+    margin-bottom: 50px; }
+  body.top .top-hero--upper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  body.top .top-hero--heading {
+    font-weight: 800;
+    margin-bottom: 50px; }
+  body.top .top-hero--sub-heading {
+    margin-bottom: 70px; }
+  body.top .top-hero--sn {
+    display: flex;
+    justify-content: center; }
+    body.top .top-hero--sn-item {
+      width: 190px;
+      min-height: 65px;
+      border-radius: 5px;
+      background-color: #fff; }
+      body.top .top-hero--sn-item:not(:last-child):not(:only-child) {
+        margin-right: 50px; }
+      body.top .top-hero--sn-item a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8C9EFF; }
+        body.top .top-hero--sn-item a span {
+          font-size: 20px;
+          margin-left: 10px; }
+      body.top .top-hero--sn-item--twitter a {
+        color: #2AA9E0; }
+  body.top .top-hero--event {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    body.top .top-hero--event-img {
+      width: 500px;
+      margin-right: 70px; }
+      body.top .top-hero--event-img img {
+        width: 100%;
+        border-radius: 10px; }
+    body.top .top-hero--event-text {
+      flex: 1;
+      max-width: 455px; }
+      body.top .top-hero--event-text p {
+        margin-bottom: 50px; }
+  body.top .top-benefits {
+    display: flex; }
+    body.top .top-benefits--content {
+      width: 600px;
+      margin-right: 110px; }
+    body.top .top-benefits--img {
+      flex: 1;
+      max-width: 550px; }
+      body.top .top-benefits--img img {
+        width: 100%; }
+    body.top .top-benefits--item {
+      display: flex;
+      align-items: center; }
+      body.top .top-benefits--item:not(:last-child):not(:only-child) {
+        margin-bottom: 30px; }
+      body.top .top-benefits--item-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+        width: 80px;
+        height: 80px;
+        margin-right: 35px;
+        background-color: #EA8F36;
+        border: 5px solid #fff;
+        border-radius: 20px; }
+        body.top .top-benefits--item-icon img {
+          width: 46px; }
+      body.top .top-benefits--item-text h2 {
+        font-size: 28px;
+        font-weight: 600; }
