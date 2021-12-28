@@ -1,5 +1,7 @@
-# Gulp Starter for CSS Tricks Tutorial  
+# SolWhalz Web Dev.
 
-This repo is a gulp starter for this CSS Tricks tutorial. 
+##Dev
+Run `gulp default` for assets compilation
 
-Remember to do run the `npm install` command after cloning this repo :) 
+##Production
+Run `gulp build` for assets compilation, cleaning and optimization
