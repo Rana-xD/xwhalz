@@ -1,6 +1,9 @@
 body.top {
 
-    background-color: #8C9EFF;
+    background-image: url(../images/top/page-bg.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .top-section {
         margin-bottom: 50px;
@@ -132,6 +135,165 @@ body.top {
                 h2 {
                     font-size: 28px;
                     font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .top-showcases {
+
+        margin: 150px 0;
+
+        &--content {
+            position: relative;
+        }
+
+        &--slider {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -50px;
+            position: relative;
+        }
+
+        &--item {
+            flex-basis: calc(33.33% - 50px);
+            margin-right: 50px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &--arrow-wrapper {
+
+        }
+
+        &--arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #EA8F36;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 23px;
+                height: 23px;
+                background-image: url(../images/common/arrow.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            &__left {
+                left: -65px;
+
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &__right {
+                right: -65px;
+            }
+        }
+    }
+
+    .top-roadmap {
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--item {
+            display: flex;
+            align-items: flex-start;
+            width: 50%;
+            margin-left: auto;
+
+            &-icon {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                background-color: #EA8F36;
+                border: 5px solid #fff;
+                margin-right: 60px;
+                margin-left: -40px;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                }
+            }
+
+            &-bar {
+                width: 8px;
+                height: 180px;
+                background-color: #4C5481;
+            }
+
+            &-text {
+                min-height: 160px;
+                background-color: #EBEBEB;
+                padding: 20px;
+                border-radius: 6px;
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    top: 35px;
+                    left: -20px;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 11px 22px 11px 0;
+                    border-color: transparent #EBEBEB transparent transparent;
+                }
+
+                &--head {
+                    color: #EA8F36;
+                    font-size: 24px;
+                    margin-bottom: 15px;
+                }
+
+                &--content {
+                    color: #8E8E8E;
+                }
+            }
+
+            &__left {
+                margin-left: 0;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                width: calc(50% + 8px);
+
+                .top-roadmap--item {
+                    &-icon {
+                        margin-right: -40px;
+                        margin-left: 60px;
+                    }
+
+                    &-text {
+                        &::after {
+                            left: unset;
+                            right: -20px;
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    &-bar {
+                        margin-left: auto;
+                    }
                 }
             }
         }

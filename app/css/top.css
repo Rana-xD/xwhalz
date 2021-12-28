@@ -1,5 +1,8 @@
 body.top {
-  background-color: #8C9EFF; }
+  background-image: url(../images/top/page-bg.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover; }
   body.top .top-section {
     margin-bottom: 50px; }
   body.top .top-hero--upper {
@@ -81,3 +84,104 @@ body.top {
       body.top .top-benefits--item-text h2 {
         font-size: 28px;
         font-weight: 600; }
+  body.top .top-showcases {
+    margin: 150px 0; }
+    body.top .top-showcases--content {
+      position: relative; }
+    body.top .top-showcases--slider {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -50px;
+      position: relative; }
+    body.top .top-showcases--item {
+      flex-basis: calc(33.33% - 50px);
+      margin-right: 50px; }
+      body.top .top-showcases--item img {
+        width: 100%; }
+    body.top .top-showcases--arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #EA8F36;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      body.top .top-showcases--arrow::after {
+        content: "";
+        display: block;
+        width: 23px;
+        height: 23px;
+        background-image: url(../images/common/arrow.svg);
+        background-repeat: no-repeat;
+        background-size: contain; }
+      body.top .top-showcases--arrow__left {
+        left: -65px; }
+        body.top .top-showcases--arrow__left::after {
+          transform: rotate(180deg); }
+      body.top .top-showcases--arrow__right {
+        right: -65px; }
+  body.top .top-roadmap--content {
+    display: flex;
+    flex-direction: column; }
+  body.top .top-roadmap--item {
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+    margin-left: auto; }
+    body.top .top-roadmap--item-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #EA8F36;
+      border: 5px solid #fff;
+      margin-right: 60px;
+      margin-left: -40px;
+      position: relative; }
+      body.top .top-roadmap--item-icon img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); }
+    body.top .top-roadmap--item-bar {
+      width: 8px;
+      height: 180px;
+      background-color: #4C5481; }
+    body.top .top-roadmap--item-text {
+      min-height: 160px;
+      background-color: #EBEBEB;
+      padding: 20px;
+      border-radius: 6px;
+      position: relative; }
+      body.top .top-roadmap--item-text::after {
+        position: absolute;
+        top: 35px;
+        left: -20px;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 11px 22px 11px 0;
+        border-color: transparent #EBEBEB transparent transparent; }
+      body.top .top-roadmap--item-text--head {
+        color: #EA8F36;
+        font-size: 24px;
+        margin-bottom: 15px; }
+      body.top .top-roadmap--item-text--content {
+        color: #8E8E8E; }
+    body.top .top-roadmap--item__left {
+      margin-left: 0;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      width: calc(50% + 8px); }
+      body.top .top-roadmap--item__left .top-roadmap--item-icon {
+        margin-right: -40px;
+        margin-left: 60px; }
+      body.top .top-roadmap--item__left .top-roadmap--item-text::after {
+        left: unset;
+        right: -20px;
+        transform: rotate(180deg); }
+      body.top .top-roadmap--item__left .top-roadmap--item-bar {
+        margin-left: auto; }
