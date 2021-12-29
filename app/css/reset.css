@@ -52,6 +52,8 @@ body {
 a {
   text-decoration: none;
   color: #fff; }
+  a:hover {
+    opacity: .8; }
   a.button {
     display: flex;
     justify-content: center;

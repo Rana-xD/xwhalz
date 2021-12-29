@@ -15,3 +15,11 @@
     justify-content: $jc;
     align-items: $ai;
 }
+
+//@mixin mq($point, $min:false) {
+//    @if(map-get($breakpoints, $point)){
+//        @media all and (max-width: map-get($breakpoints, $point)) { @content; }
+//    }@else{
+//        @media all and (max-width: $point) { @content; }
+//    }
+//}
