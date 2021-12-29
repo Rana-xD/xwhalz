@@ -59,5 +59,7 @@
   .footer-sn {
     display: flex;
     margin-left: auto; }
-    .footer-sn--item:not(:last-child):not(:only-of-type) {
-      margin-right: 30px; }
+    .footer-sn--item {
+      line-height: 0; }
+      .footer-sn--item:not(:last-child):not(:only-of-type) {
+        margin-right: 30px; }
