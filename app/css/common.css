@@ -1,8 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 40px;
+  margin-top: 40px;
   width: calc(100% - 250px);
   padding: 0 125px; }
   .header-logo {
@@ -40,9 +39,10 @@
 
 .footer {
   width: calc(100% - 250px);
-  margin: 40px auto;
+  margin: 40px auto 10px;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: flex-end; }
   .footer-head {
     font-size: 20px;
     margin-right: auto;

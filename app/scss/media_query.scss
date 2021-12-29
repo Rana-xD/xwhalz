@@ -1,0 +1,25 @@
+//@import "./breakpoints";
+//
+//@mixin mq($point, $min:false) {
+//	if($min) {
+//		@if (map-get($breakpoints, $point)) {
+//			@media all and (min-width: map-get($breakpoints, $point)+1) {
+//				@content;
+//			}
+//		} @else {
+//			@media all and (min-width: $point) {
+//				@content;
+//			}
+//		}
+//	} @else {
+//		@if (map-get($breakpoints, $point)) {
+//			@media all and (max-width: map-get($breakpoints, $point)) {
+//				@content;
+//			}
+//		} @else {
+//			@media all and (max-width: $point) {
+//				@content;
+//			}
+//		}
+//	}
+//}

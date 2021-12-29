@@ -196,7 +196,8 @@ body.top {
     body.top .top-roadmap--item-bar {
       width: 8px;
       height: 180px;
-      background-color: #4C5481; }
+      background-color: #fff;
+      margin: -1px 0; }
     body.top .top-roadmap--item-text {
       min-height: 160px;
       background-color: #EBEBEB;
