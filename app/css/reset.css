@@ -48,6 +48,11 @@ body {
   color: #fff;
   font-size: 18px;
   line-height: 1.6; }
+  @media all and (max-width: 679px) {
+    body {
+      font-size: 16px; } }
+  body.-active {
+    overflow: hidden; }
 
 a {
   text-decoration: none;

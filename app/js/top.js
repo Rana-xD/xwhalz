@@ -13,22 +13,34 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
         var $slide = $('#top-showcases--slider');
 
         // Workaround to fix slick does not expand when there are only 3 items
-        var slideCount = $(".top-showcases--item").length;
-        if (slideCount <= 3) {
-            $slide.children().clone(true, true).appendTo(".top-showcases--slider");
-        }
+        // var slideCount = $(".top-showcases--item").length;
+        // if (slideCount <= 3) {
+        //     $slide.children().clone(true, true).appendTo(".top-showcases--slider");
+        // }
 
         $slide.slick({
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
-            autoplay: true,
+            // autoplay: true,
             pauseOnHover: false,
             arrows: true,
             dots: false,
             appendArrows: $('.top-showcases--arrow-wrapper'),
             nextArrow: '<div class="top-showcases--arrow top-showcases--arrow__right"></div>',
-            prevArrow: '<div class="top-showcases--arrow top-showcases--arrow__left"></div>'
+            prevArrow: '<div class="top-showcases--arrow top-showcases--arrow__left"></div>',
+            responsive: [
+                {
+                    breakpoint: 679,
+                    settings: {
+                        slidesToShow: 1,
+                        // slidesToScroll: 1,
+                        infinite: true,
+                        dots: false,
+                        arrows: false
+                    }
+                }
+            ]
         });
     }
 

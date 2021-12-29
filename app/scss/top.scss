@@ -1,4 +1,5 @@
 @import './misc.scss';
+@import './media_query';
 
 body.top {
     background-image: url(../images/top/page-bg.jpg);
@@ -11,45 +12,89 @@ body.top {
     }
 
     .top-hero {
+
+        @include mq(sp) {
+            margin-top: 100px;
+        }
+
         &--upper {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @include mq(sp, true) {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            @include mq(sp) {
+                margin-bottom: 50px;
+            }
         }
 
         &--lower {
             position: relative;
 
             .bg-object--01 {
-                width: 55px;
-                height: 55px;
-                top: -5em;
-                left: 0;
+                @include mq(sp, true) {
+                    width: 55px;
+                    height: 55px;
+                    top: -5em;
+                    left: 0;
+                }
+
+                @include mq(sp) {
+                    width: 55px;
+                    height: 55px;
+                    top: 0;
+                    left: 0;
+                }
             }
 
             .bg-object--02 {
-                width: 115px;
-                height: 85px;
-                right: -3em;
-                bottom: 70px;
+                @include mq(sp, true) {
+                    width: 115px;
+                    height: 85px;
+                    right: -3em;
+                    bottom: 70px;
+                }
+
+                @include mq(sp) {
+                    width: 60px;
+                    height: 85px;
+                    right: 0;
+                    bottom: 40%
+                }
             }
         }
 
         &--heading {
             font-weight: 800;
             margin-bottom: 50px;
+
+            @include mq(sp) {
+                text-align: center;
+                margin-bottom: 30px;
+            }
         }
 
         &--sub-heading {
             margin-bottom: 70px;
             line-height: 2;
             text-align: center;
+
+            @include mq(sp) {
+                margin-bottom: 30px;
+            }
         }
 
         &--sn {
             @include flex_block(center);
+
+            @include mq(sp) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
 
             &-item {
                 width: 190px;
@@ -57,8 +102,18 @@ body.top {
                 border-radius: 5px;
                 background-color: #fff;
 
+                @include mq(sp) {
+                    width: 100%;
+                }
+
                 &:not(:last-child):not(:only-child) {
-                    margin-right: 50px;
+                    @include mq(sp, true) {
+                        margin-right: 50px;
+                    }
+
+                    @include mq(sp) {
+                        margin-bottom: 20px;
+                    }
                 }
 
                 a {
@@ -67,9 +122,17 @@ body.top {
                     @include flex_block(center, center);
                     color: #8C9EFF;
 
+                    @include mq(sp) {
+                        height: 60px;
+                    }
+
                     span {
                         font-size: 20px;
                         margin-left: 10px;
+
+                        @include mq(sp) {
+                            margin-left: 20px;
+                        }
                     }
                 }
 
@@ -84,11 +147,21 @@ body.top {
         &--event {
             @include flex_block(center, center);
 
+            @include mq(sp) {
+                flex-direction: column;
+            }
+
             &-img {
                 width: 500px;
                 margin-right: 70px;
                 @include img_block();
                 @include img_shadow();
+
+                @include mq(sp) {
+                    width: 70%;
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
 
                 img {
                     border-radius: 10px;
@@ -96,36 +169,76 @@ body.top {
             }
 
             &-text {
-                flex: 1;
-                max-width: 455px;
+                @include mq(sp, true) {
+                    flex: 1;
+                    max-width: 455px;
+                }
 
                 p {
                     margin-bottom: 50px;
+                    
+                    @include mq(sp) {
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            &-btn {
+                @include mq(sp) {
+                    a {
+                        margin: 0 auto;
+                    }
                 }
             }
         }
     }
 
     .top-benefits {
-        display: flex;
+        position: relative;
+        @include mq(sp, true) {
+            display: flex;
+        }
 
         &--content {
-            width: 600px;
-            margin-right: 110px;
+            @include mq(sp, true) {
+                width: 600px;
+                margin-right: 110px;
+            }
         }
 
         &--img {
-            flex: 1;
-            max-width: 550px;
+            width: 550px;
+            position: absolute;
+            z-index: -1;
+
+            @include mq(sp, true) {
+                right: -100px;
+                bottom: 0;
+            }
             @include img_block();
+
+            @include mq(sp) {
+                width: 150px;
+                top: -120px;
+                right: -20px;
+            }
         }
 
         &--item {
             display: flex;
             align-items: center;
 
+            @include mq(sp) {
+                align-items: flex-start;
+            }
+
             &:not(:last-child):not(:only-child) {
                 margin-bottom: 30px;
+
+                @include mq(sp) {
+                    margin-bottom: 20px;
+                }
             }
 
             &-icon {
@@ -138,15 +251,35 @@ body.top {
                 border: 5px solid #fff;
                 border-radius: 20px;
 
+                @include mq(sp) {
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 15px;
+                    border-width: 2px;
+                    border-radius: 10px;
+                }
+
                 img {
                     width: 46px;
+
+                    @include mq(sp) {
+                        width: 40px;
+                    }
                 }
             }
 
             &-text {
+                @include mq(sp) {
+                    margin-top: -5px;
+                }
+
                 h2 {
                     font-size: 28px;
                     font-weight: 600;
+
+                    @include mq(sp) {
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -155,6 +288,10 @@ body.top {
     .top-showcases {
 
         margin: 120px 0;
+
+        @include mq(sp) {
+            margin: 50px 0;
+        }
 
         &--content {
             position: relative;
@@ -165,19 +302,33 @@ body.top {
             flex-wrap: wrap;
             margin-right: -50px;
             position: relative;
+
+            @include mq(sp) {
+                //width: 70%;
+                margin: 0 auto;
+            }
         }
 
         &--item {
-            flex-basis: calc(33.33% - 50px);
-            margin-right: 50px;
+            @include mq(sp, true) {
+                flex-basis: calc(33.33% - 50px);
+                margin-right: 50px;
+            }
+
             @include img_block();
             @include img_shadow();
             margin-bottom: 50px;
             margin-top: 50px;
+
+            @include mq(sp) {
+                margin: 40px;
+            }
         }
 
         &--arrow-wrapper {
-
+            @include mq(sp) {
+                display: none;
+            }
         }
 
         &--arrow {
@@ -222,44 +373,85 @@ body.top {
             position: relative;
 
             .bg-object--01 {
-                width: 513px;
-                height: 379px;
-                top: -200px;
-                left: 0;
+                @include mq(sp, true) {
+                    width: 513px;
+                    height: 379px;
+                    top: -200px;
+                    left: 0;
+                }
+
+                @include mq(sp) {
+                    width: 150px;
+                    height: 379px;
+                    top: -135px;
+                    left: -35px;
+                }
             }
             .bg-object--02 {
-                width: 258px;
-                height: 192px;
-                top: 220px;
-                right: 0;
+                @include mq(sp, true) {
+                    width: 258px;
+                    height: 192px;
+                    top: 220px;
+                    right: 0;
+                }
+
+                @include mq(sp) {
+                    width: 100px;
+                    height: 192px;
+                    top: -100px;
+                    right: -11px;
+                }
             }
             .bg-object--03 {
-                width: 289px;
-                height: 241px;
-                top: 490px;
-                left: -120px;
-            }
+                @include mq(sp, true) {
+                    width: 289px;
+                    height: 241px;
+                    top: 490px;
+                    left: -120px;
+                }
 
+                @include mq(sp) {
+                    width: 70px;
+                    bottom: -70px;
+                    left: 0;
+                }
+            }
             .bg-object--04 {
-                width: 356px;
-                height: 264px;
-                bottom: 220px;
-                right: 50%;
-            }
+                @include mq(sp, true) {
+                    width: 356px;
+                    height: 264px;
+                    bottom: 220px;
+                    right: 50%;
+                }
 
+                @include mq(sp) {
+                    display: none;
+                }
+            }
             .bg-object--05 {
-                width: 216px;
-                height: 161px;
-                bottom: 20px;
-                right: 0;
+                @include mq(sp, true) {
+                    width: 216px;
+                    height: 161px;
+                    bottom: 20px;
+                    right: 0;
+                }
+
+                @include mq(sp) {
+                    width: 100px;
+                    bottom: -120px;
+                    right: 0;
+                }
             }
         }
 
         &--item {
             display: flex;
             align-items: flex-start;
-            width: 50%;
             margin-left: auto;
+
+            @include mq(sp, true) {
+                width: 50%;
+            }
 
             &-icon {
                 width: 70px;
@@ -271,11 +463,23 @@ body.top {
                 margin-left: -35px;
                 position: relative;
 
+                @include mq(sp) {
+                    width: 50px;
+                    height: 50px;
+                    border-width: 2px;
+                    margin-right: 20px;
+                    margin-left: 0;
+                }
+
                 img {
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translateX(-50%) translateY(-50%);
+
+                    @include mq(sp) {
+                        width: 60%;
+                    }
                 }
             }
 
@@ -284,6 +488,11 @@ body.top {
                 height: 180px;
                 background-color: #4C5481;
                 margin: -1px 0;
+
+                @include mq(sp) {
+                    width: 4px;
+                    margin-left: 25px;
+                }
             }
 
             &-text {
@@ -292,6 +501,11 @@ body.top {
                 padding: 20px;
                 border-radius: 6px;
                 position: relative;
+
+                @include mq(sp) {
+                    padding: 10px;
+                    min-height: 100px;
+                }
 
                 &::after {
                     position: absolute;
@@ -303,20 +517,43 @@ body.top {
                     border-style: solid;
                     border-width: 11px 22px 11px 0;
                     border-color: transparent #EBEBEB transparent transparent;
+
+                    @include mq(sp) {
+                        border-width: 5px 10px 5px 0;
+                        left: -10px;
+                        top: 20px;
+                    }
                 }
 
                 &--head {
                     color: #EA8F36;
                     font-size: 24px;
                     margin-bottom: 15px;
+
+                    @include mq(sp) {
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                    }
                 }
 
                 &--content {
                     color: #8E8E8E;
                 }
             }
+        }
 
-            &__left {
+        &--img {
+            width: 685px;
+            margin: 30px auto 60px;
+            @include img_block();
+
+            @include mq(sp) {
+                width: 300px;
+            }
+        }
+
+        @include mq(sp, true) {
+            .top-roadmap--item__left {
                 margin-left: 0;
                 flex-direction: row-reverse;
                 justify-content: flex-end;
@@ -341,12 +578,6 @@ body.top {
                     }
                 }
             }
-        }
-
-        &--img {
-            width: 685px;
-            margin: 30px auto 60px;
-            @include img_block();
         }
     }
 }

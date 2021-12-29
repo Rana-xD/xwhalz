@@ -1,5 +1,5 @@
 @import './misc';
-@import './breakpoints';
+@import './media_query';
 
 .header {
   display: flex;
@@ -8,9 +8,21 @@
   width: calc(100% - 250px);
   padding: 0 125px;
 
+  @include mq(sp) {
+    width: auto;
+    padding: 0;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
   &-logo {
     width: 205px;
     margin-right: auto;
+
+    @include mq(sp) {
+      margin-right: 0;
+      margin-top: 5px;
+    }
 
     img {
       width: 100%;
@@ -20,30 +32,132 @@
   &-menu {
     display: flex;
 
+    @include mq(sp) {
+      display: none;
+      flex-direction: column;
+    }
+
     &--item {
       font-size: 24px;
       font-weight: 700;
-
+      
       &:not(:last-child):not(:only-child) {
-        margin-right: 30px;
+        @include mq(sp, true) {
+          margin-right: 30px;
+        }
       }
+
+      @include mq(sp) {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @include mq(sp) {
+    .header-menu.-active {
+      display: flex;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      background: black;
+      padding: 50%;
+      z-index: 10;
     }
   }
 
   &-btn {
     margin-left: auto;
   }
+
+  &-sp-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    display: block;
+    z-index: 100;
+    padding: 0;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+
+    @include mq(sp, true) {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 25px;
+      display: block;
+      height: 4px;
+      width: 30px;
+      background: #EA8F36;
+      transform: translateX(-50%);
+      transition: transform .3s ease;
+    }
+
+    &::before {
+      box-shadow: 0 10px 0 0 #EA8F36;
+
+    }
+
+    &::after {
+      top: 45px;
+    }
+
+    &.-active {
+      &::before,
+      &::after {
+        background-color: #EA8F36;
+        top: 36px;
+      }
+      &::before {
+        @include mq(sp) {
+          transform: translateX(-50%) rotate(45deg);
+          box-shadow: 0 0 0 0 transparent;
+        }
+      }
+
+      &::after {
+        @include mq(sp) {
+          transform: translateX(-50%) rotate(-45deg);
+        }
+
+      }
+    }
+  }
 }
 
 .section {
   &-inner {
-    max-width: 1200px;
     margin: 0 auto;
+
+    @include mq(sp, true) {
+      max-width: 1200px;
+    }
+
+    @include mq(sp) {
+      padding: 0 20px;
+    }
   }
   
   &-heading {
     text-align: center;
     margin-bottom: 60px;
+
+    @include mq(sp) {
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -52,20 +166,34 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
     font-weight: 700;
+
+    @include mq(sp) {
+      font-size: 32px;
+    }
   }
 }
 
 .bg-object {
   position: absolute;
+  z-index: -1;
   @include img_block();
 }
 
 .footer {
-  width: calc(100% - 250px);
   margin: 40px auto 10px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
+  @include mq(sp, true) {
+    width: calc(100% - 250px);
+  }
+  
+  @include mq(sp) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+  }
 
   &-head {
     font-size: 20px;
@@ -79,6 +207,11 @@
 
   &-menu {
     display: flex;
+
+    @include mq(sp) {
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
 
     &--item {
       &:not(:last-child):not(:only-of-type){
@@ -96,6 +229,11 @@
     display: flex;
     margin-left: auto;
 
+    @include mq(sp) {
+      margin-left: 0;
+      margin-bottom: 40px;
+    }
+
     &--item {
       line-height: 0;
 
@@ -103,5 +241,39 @@
         margin-right: 30px;
       }
     }
+  }
+}
+
+.fadein {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: 1200ms;
+  transition-property: opacity, transform;
+
+  &.animate {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.none {
+  display: none;
+}
+
+.sp-block {
+  @include mq(sp) {
+    display: block;
+  }
+}
+
+.sp-flex {
+  @include mq(sp) {
+    display: flex;
+  }
+}
+
+.sp-none {
+  @include mq(sp) {
+    display: none;
   }
 }
