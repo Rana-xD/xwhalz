@@ -32,3 +32,32 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 42px;
   font-weight: 700; }
+
+.bg-object {
+  position: absolute; }
+  .bg-object img {
+    width: 100%; }
+
+.footer {
+  width: calc(100% - 250px);
+  margin: 40px auto;
+  display: flex;
+  justify-content: center; }
+  .footer-head {
+    font-size: 20px;
+    margin-right: auto;
+    font-weight: 400; }
+    .footer-head .highlight {
+      color: #EA8F36; }
+  .footer-menu {
+    display: flex; }
+    .footer-menu--item:not(:last-child):not(:only-of-type) {
+      margin-right: 30px; }
+    .footer-menu--item a {
+      font-size: 24px;
+      font-weight: 700; }
+  .footer-sn {
+    display: flex;
+    margin-left: auto; }
+    .footer-sn--item:not(:last-child):not(:only-of-type) {
+      margin-right: 30px; }

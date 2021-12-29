@@ -12,9 +12,16 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
     ns.showcasesSlider = function() {
         var $slide = $('#top-showcases--slider');
 
+        // Workaround to fix slick does not expand when there are only 3 items
+        var slideCount = $(".top-showcases--item").length;
+        if (slideCount <= 3) {
+            $slide.children().clone(true, true).appendTo(".top-showcases--slider");
+        }
+
         $slide.slick({
             infinite: true,
             slidesToShow: 3,
+            slidesToScroll: 1,
             autoplay: true,
             pauseOnHover: false,
             arrows: true,

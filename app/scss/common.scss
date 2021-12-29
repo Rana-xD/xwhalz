@@ -1,3 +1,5 @@
+@import './misc.scss';
+
 .header {
   display: flex;
   align-items: center;
@@ -50,5 +52,53 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
     font-weight: 700;
+  }
+}
+
+.bg-object {
+  position: absolute;
+  @include img_block();
+}
+
+.footer {
+  width: calc(100% - 250px);
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+
+  &-head {
+    font-size: 20px;
+    margin-right: auto;
+    font-weight: 400;
+
+    .highlight {
+      color: #EA8F36;
+    }
+  }
+
+  &-menu {
+    display: flex;
+
+    &--item {
+      &:not(:last-child):not(:only-of-type){
+        margin-right: 30px;
+      }
+
+      a {
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &-sn {
+    display: flex;
+    margin-left: auto;
+
+    &--item {
+      &:not(:last-child):not(:only-of-type){
+        margin-right: 30px;
+      }
+    }
   }
 }

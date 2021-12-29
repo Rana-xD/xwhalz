@@ -57,7 +57,12 @@
                 <div class="top-hero--lower">
                     <div class="top-hero--event">
                         <div class="top-hero--event-img">
-                            <img src="images/top/hero-event.gif" alt="">
+                            <figure>
+                                <picture>
+                                    <source media="(max-width: 679px)" srcset="images/top/hero-event.gif">
+                                    <img src="images/top/hero-event.gif" alt="">
+                                </picture>
+                            </figure>
                         </div>
                         <div class="top-hero--event-text">
                             <p>lorem ipsum is simply dummy text ot printing and prototyping for the dummy text and lorem
@@ -70,6 +75,12 @@
                                 <a href="" class="button">Connect Wallet</a>
                             </div>
                         </div>
+                    </div>
+                    <div class="bg-object bg-object--01">
+                        <img src="images/top/hero-bg-object-01.png" alt="">
+                    </div>
+                    <div class="bg-object bg-object--02">
+                        <img src="images/top/hero-bg-object-02.png" alt="">
                     </div>
                 </div>
             </div>
@@ -143,12 +154,6 @@
                 <div class="top-showcases--slider" id="top-showcases--slider">
                     <div class="top-showcases--item">
                         <img src="images/top/showcases-01.jpg" alt="">
-                    </div>
-                    <div class="top-showcases--item">
-                        <img src="images/top/showcases-02.jpg" alt="">
-                    </div>
-                    <div class="top-showcases--item">
-                        <img src="images/top/showcases-03.jpg" alt="">
                     </div>
                     <div class="top-showcases--item">
                         <img src="images/top/showcases-02.jpg" alt="">
@@ -254,23 +259,68 @@
                     </div>
                 </div>
 
+                <div class="bg-object bg-object--01">
+                    <img src="images/top/roadmap-bg-object-01.png" alt="">
+                </div>
+                <div class="bg-object bg-object--02">
+                    <img src="images/top/roadmap-bg-object-02.png" alt="">
+                </div>
+                <div class="bg-object bg-object--03">
+                    <img src="images/top/roadmap-bg-object-03.png" alt="">
+                </div>
+                <div class="bg-object bg-object--04">
+                    <img src="images/top/roadmap-bg-object-04.png" alt="">
+                </div>
+                <div class="bg-object bg-object--05">
+                    <img src="images/top/roadmap-bg-object-05.png" alt="">
+                </div>
+            </div>
+            <div class="top-roadmap--img">
+                <figure>
+                    <picture>
+                        <source media="(max-width: 679px)" srcset="images/top/roadmap-main.png">
+                        <img src="images/top/roadmap-main.png" alt="">
+                    </picture>
+                </figure>
             </div>
         </div>
     </section>
 </main>
 
-<footer>
+<footer class="footer">
+    <div class="footer-head">
+        <p>&copy;2021 <span class="highlight">Salwhalz</span></p>
+    </div>
+
+    <ul class="footer-menu">
+        <li class="footer-menu--item">
+            <a href="">About</a>
+        </li>
+        <li class="footer-menu--item">
+            <a href="">Benefit</a>
+        </li>
+        <li class="footer-menu--item">
+            <a href="">Showcases</a>
+        </li>
+        <li class="footer-menu--item">
+            <a href="">RoadMap</a>
+        </li>
+    </ul>
+    
+    <div class="footer-sn">
+        <a href="" class="footer-sn--item">
+            <img src="images/common/twitter.svg" alt="Twitter">
+        </a>
+        <a href="" class="footer-sn--item">
+            <img src="images/common/discord.svg" alt="Discord">
+        </a>
+    </div>
 
 </footer>
 <script type="text/javascript" src="js/lib/jquery.min.js"></script>
 <script type="text/javascript" src="js/lib/slick.min.js"></script>
 <script type="text/javascript" src="js/top.js"></script>
 
-<!--build:js js/main.min.js -->
-<!--  <script src="js/lib/a-library.js"></script>-->
-<!--  <script src="js/lib/another-library.js"></script>-->
-<!--  <script src="js/main.js"></script>-->
-<!-- endbuild -->
 </body>
 
 </html>

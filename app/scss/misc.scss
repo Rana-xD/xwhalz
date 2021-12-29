@@ -1,0 +1,17 @@
+@mixin img_block {
+    img {
+        width: 100%;
+    }
+}
+
+@mixin img_shadow {
+    img {
+        box-shadow: 0 0.5em 30px 0 rgba(187,132,210,.3);
+    }
+}
+
+@mixin flex_block ($jc: flex-start, $ai: stretch) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
