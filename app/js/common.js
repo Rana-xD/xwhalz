@@ -16,7 +16,7 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
     ns.scrollReveal = function () {
         var controller = new ScrollMagic.Controller();
 
-        $('.fadein').each(function () {
+        $('.fade-in-down, .fade-in-up').each(function () {
             addTrigger(this, this)
         });
 
@@ -26,7 +26,7 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
                 triggerHook: 0.9,
                 reverse: false
             })
-                .setClassToggle(element, 'animate')
+                .setClassToggle(element, '-animated')
                 .addTo(controller);
 
         }
