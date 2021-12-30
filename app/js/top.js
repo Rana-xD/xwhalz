@@ -66,8 +66,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
         tree.each(function () {
             var item = this;
             treeTl.add(function () {
-                const itemTl = gsap.timeline({
-                });
+                const itemTl = gsap.timeline();
                 itemTl.from($(item).find('.top-roadmap--item-icon'), {
                     y: -100,
                     opacity: 0
@@ -83,8 +82,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
                 });
                 itemTl.to($(item).find('.top-roadmap--item-text--convo'), {
                     opacity: 1,
-                    x: 0,
-                });
+                }, '<');
                 return itemTl;
             }());
 

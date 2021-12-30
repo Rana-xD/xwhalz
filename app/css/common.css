@@ -23,8 +23,20 @@
     display: flex; }
     @media all and (max-width: 679px) {
       .header-menu {
-        display: none;
-        flex-direction: column; } }
+        display: flex;
+        width: 70%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        z-index: 10;
+        padding-top: 100px;
+        flex-direction: column;
+        transition: transform 0.2s ease-in-out !important;
+        transform: translate(105%, 0); }
+        .header-menu::after {
+          content: ''; } }
     .header-menu--item {
       font-size: 24px;
       font-weight: 700; }
@@ -60,21 +72,13 @@
               width: 100%; } }
   @media all and (max-width: 679px) {
     .header .header-menu.-active {
-      display: flex;
-      width: 70%;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: black;
-      z-index: 10;
-      padding-top: 100px; }
+      transform: translate(0, 0); }
       .header .header-menu.-active .header-menu--item {
         font-size: 18px; } }
   .header-btn {
     margin-left: auto; }
   .header-sp-btn {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     width: 70px;
@@ -85,6 +89,8 @@
     appearance: none;
     background-color: transparent;
     border: none; }
+    .header-sp-btn.-active {
+      position: fixed; }
     @media all and (min-width: 680px) {
       .header-sp-btn {
         display: none; } }
@@ -115,6 +121,26 @@
     @media all and (max-width: 679px) {
       .header-sp-btn.-active::after {
         transform: translateX(-50%) rotate(-45deg); } }
+  @media all and (max-width: 679px) {
+    .header .fake-cover {
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      left: -30vw;
+      width: calc(100% + 30vw);
+      height: 100%;
+      top: -100px;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+      transition-property: opacity;
+      transition: opacity 0.5s linear;
+      transition-delay: 0.5s;
+      padding-top: 100px; }
+      .header .fake-cover.-active {
+        display: block;
+        opacity: 1;
+        visibility: visible; } }
 
 .section-inner {
   margin: 0 auto; }

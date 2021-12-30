@@ -39,7 +39,7 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
 
         var $navButton = $('.header-sp-btn');
         var $nav = $('.header-menu');
-        var $body = $('body');
+        var $body = $('.fake-cover');
         var isNavOpen = false;
 
         navHandle(mediaQuery);

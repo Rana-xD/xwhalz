@@ -33,8 +33,22 @@
         display: flex;
 
         @include mq(sp) {
-            display: none;
+            display: flex;
+            width: 70%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: black;
+            z-index: 10;
+            padding-top: 100px;
             flex-direction: column;
+            transition: transform 0.2s ease-in-out !important;
+            transform: translate(105%, 0);
+
+            &::after {
+                content: '';
+            }
         }
 
         &--item {
@@ -90,15 +104,20 @@
 
     @include mq(sp) {
         .header-menu.-active {
-            display: flex;
-            width: 70%;
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            background: black;
-            z-index: 10;
-            padding-top: 100px;
+            transform: translate(0, 0);
+
+            //&::after {
+            //    content: '';
+            //    width: 30vw;
+            //    height: 100%;
+            //    top: 0;
+            //    bottom: 0;
+            //    left: 0;
+            //    right: 0;
+            //    position: absolute;
+            //    transform: translate(-100%, 0);
+            //    background-color: rgba(0,0,0,0.65);
+            //}
 
             .header-menu--item{
                 font-size: 18px;
@@ -111,7 +130,7 @@
     }
 
     &-sp-btn {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         width: 70px;
@@ -122,6 +141,10 @@
         appearance: none;
         background-color: transparent;
         border: none;
+
+        &.-active {
+            position: fixed;
+        }
 
         @include mq(sp, true) {
             display: none;
@@ -173,6 +196,31 @@
                     transform: translateX(-50%) rotate(-45deg);
                 }
 
+            }
+        }
+    }
+
+    .fake-cover {
+        @include mq(sp) {
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            left: -30vw;
+            width: calc(100% + 30vw);
+            height: 100%;
+            top: -100px;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.65);
+            z-index: -1;
+            transition-property: opacity;
+            transition: opacity 0.5s linear;
+            transition-delay: 0.5s;
+            padding-top: 100px;
+
+            &.-active {
+                display: block;
+                opacity: 1;
+                visibility: visible;
             }
         }
     }

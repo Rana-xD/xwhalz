@@ -394,7 +394,6 @@ body.top {
         body.top .top-roadmap--item-text {
           min-height: 100px; } }
       body.top .top-roadmap--item-text--convo {
-        transform: translateX(-100%);
         opacity: 0;
         margin-top: 20px;
         width: 0;
