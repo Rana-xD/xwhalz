@@ -2,7 +2,7 @@ var SOLWHALZ;
 if (!SOLWHALZ) SOLWHALZ = {};
 if (!SOLWHALZ.top) SOLWHALZ.top = {};
 
-(function (){
+(function () {
     var ns = SOLWHALZ.top;
 
     var mediaQuery = matchMedia('(max-width: 679px)');
@@ -10,7 +10,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
     /* -----------------------------------------------------
     Top showcases slider
     ----------------------------------------------------- */
-    ns.showcasesSlider = function() {
+    ns.showcasesSlider = function () {
         $(document).ready(function () {
             var $slide = $('#top-showcases--slider');
 
@@ -51,9 +51,50 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
         })
     }
 
+    /* -----------------------------------------------------
+    Top showcases slider
+    ----------------------------------------------------- */
+    ns.roadmapAnimation = function () {
+        var tree = $('.top-roadmap--item');
+        var treeTl = gsap.timeline({
+                duration: 2,
+                scrollTrigger: {
+                    trigger: $('.top-roadmap--content'),
+                }
+            }
+        );
+        tree.each(function () {
+            var item = this;
+            treeTl.add(function () {
+                const itemTl = gsap.timeline({
+                });
+                itemTl.from($(item).find('.top-roadmap--item-icon'), {
+                    y: -100,
+                    opacity: 0
+                });
+                itemTl.to($(item).find('.top-roadmap--item-text--inner, .top-roadmap--item-text--inner-sub'), {
+                    x: 0,
+                    y: 0,
+                    opacity: 1,
+                });
+                itemTl.to($(item).find('.top-roadmap--item-text--convo'), {
+                    opacity: 1,
+                    x: 0,
+                });
+                itemTl.from($(item).find('.top-roadmap--item-bar'), {
+                    y: -100,
+                    opacity: 0
+                });
+                return itemTl;
+            }());
+
+        });
+    }
+
 })();
 
 
-$(function(){
+$(function () {
     SOLWHALZ.top.showcasesSlider();
+    SOLWHALZ.top.roadmapAnimation();
 });

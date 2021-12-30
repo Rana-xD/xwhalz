@@ -43,10 +43,10 @@ body.top {
                 }
 
                 @include mq(sp) {
-                    width: 55px;
+                    width: 50px;
                     height: 55px;
                     top: 0;
-                    left: 0;
+                    left: -10px;
                 }
             }
 
@@ -59,10 +59,10 @@ body.top {
                 }
 
                 @include mq(sp) {
-                    width: 60px;
+                    width: 55px;
                     height: 85px;
-                    right: 0;
-                    bottom: 40%
+                    right: -10px;
+                    bottom: 50%
                 }
             }
         }
@@ -219,7 +219,7 @@ body.top {
             @include img_block();
 
             @include mq(sp) {
-                width: 150px;
+                width: 120px;
                 top: -120px;
                 right: -20px;
             }
@@ -381,7 +381,7 @@ body.top {
                 }
 
                 @include mq(sp) {
-                    width: 150px;
+                    width: 130px;
                     height: 379px;
                     top: -135px;
                     left: -35px;
@@ -396,7 +396,7 @@ body.top {
                 }
 
                 @include mq(sp) {
-                    width: 100px;
+                    width: 90px;
                     height: 192px;
                     top: -100px;
                     right: -11px;
@@ -411,7 +411,7 @@ body.top {
                 }
 
                 @include mq(sp) {
-                    width: 70px;
+                    width: 60px;
                     bottom: -70px;
                     left: 0;
                 }
@@ -437,8 +437,8 @@ body.top {
                 }
 
                 @include mq(sp) {
-                    width: 100px;
-                    bottom: -120px;
+                    width: 90px;
+                    bottom: -100px;
                     right: 0;
                 }
             }
@@ -496,22 +496,36 @@ body.top {
             }
 
             &-text {
-                min-height: 160px;
-                background-color: #EBEBEB;
-                padding: 20px;
-                border-radius: 6px;
                 position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: row-reverse;
+
+                &--inner {
+                    min-height: 160px;
+                    background-color: #EBEBEB;
+                    padding: 20px;
+                    border-radius: 6px;
+                    overflow: hidden;
+                    transform: translate(-110%, 0);
+                    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+
+                    &-sub {
+                        opacity: 0;
+                        display: block;
+                        transform: translate(100%, 0);
+                        transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+                    }
+                }
 
                 @include mq(sp) {
-                    padding: 10px;
                     min-height: 100px;
                 }
 
-                &::after {
-                    position: absolute;
-                    top: 35px;
-                    left: -20px;
-                    content: "";
+                &--convo {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                    margin-top: 20px;
                     width: 0;
                     height: 0;
                     border-style: solid;
@@ -520,8 +534,6 @@ body.top {
 
                     @include mq(sp) {
                         border-width: 5px 10px 5px 0;
-                        left: -10px;
-                        top: 20px;
                     }
                 }
 
@@ -548,7 +560,7 @@ body.top {
             @include img_block();
 
             @include mq(sp) {
-                width: 300px;
+                width: 280px;
             }
         }
 
@@ -566,10 +578,18 @@ body.top {
                     }
 
                     &-text {
-                        &::after {
-                            left: unset;
-                            right: -20px;
-                            transform: rotate(180deg);
+                        flex-direction: row;
+
+                        &--inner {
+                            transform: translate(110%, 0);
+
+                            &-sub {
+                                transform: translate(-100%, 0);
+                            }
+                        }
+
+                        &--convo {
+                            transform: rotate(180deg) !important;
                         }
                     }
 

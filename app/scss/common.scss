@@ -191,14 +191,18 @@
   
   @include mq(sp) {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0 20px;
+    align-items: center;
   }
 
   &-head {
     font-size: 20px;
     margin-right: auto;
     font-weight: 400;
+
+    @include mq(sp) {
+      margin-left: auto;
+      margin-bottom: 40px;
+    }
 
     .highlight {
       color: #EA8F36;
@@ -211,11 +215,17 @@
     @include mq(sp) {
       flex-direction: column;
       margin-bottom: 40px;
+      align-items: center;
     }
 
     &--item {
       &:not(:last-child):not(:only-of-type){
         margin-right: 30px;
+
+        @include mq(sp) {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
       }
 
       a {
