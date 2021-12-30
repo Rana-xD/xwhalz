@@ -135,7 +135,7 @@
       z-index: -1;
       transition-property: opacity;
       transition: opacity 0.5s linear;
-      transition-delay: 0.3s;
+      transition-delay: 0.1s;
       padding-top: 100px; }
       .header .fake-cover.-active {
         display: block;
