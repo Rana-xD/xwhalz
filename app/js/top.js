@@ -28,7 +28,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
                 infinite: true,
                 slidesToShow: 3,
                 slidesToScroll: 1,
-                // autoplay: true,
+                autoplay: true,
                 pauseOnHover: false,
                 arrows: true,
                 dots: false,
