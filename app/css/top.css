@@ -327,10 +327,12 @@ body.top {
       body.top .top-roadmap--item {
         margin-bottom: 20px;
         align-items: stretch; } }
-    @media all and (max-width: 679px) {
-      body.top .top-roadmap--item--head {
-        display: flex;
-        flex-direction: column; } }
+    body.top .top-roadmap--item--head {
+      z-index: 1; }
+      @media all and (max-width: 679px) {
+        body.top .top-roadmap--item--head {
+          display: flex;
+          flex-direction: column; } }
     body.top .top-roadmap--item-icon {
       width: 70px;
       height: 70px;
@@ -339,7 +341,8 @@ body.top {
       border: 5px solid #fff;
       margin-right: 60px;
       margin-left: -35px;
-      position: relative; }
+      position: relative;
+      z-index: 1; }
       @media all and (max-width: 679px) {
         body.top .top-roadmap--item-icon {
           width: 50px;
@@ -359,7 +362,8 @@ body.top {
       width: 8px;
       height: 180px;
       background-color: #4C5481;
-      margin: -1px 0; }
+      margin: -1px 0;
+      z-index: -1; }
       @media all and (max-width: 679px) {
         body.top .top-roadmap--item-bar {
           flex: 1;

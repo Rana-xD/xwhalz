@@ -72,6 +72,10 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
                     y: -100,
                     opacity: 0
                 });
+                itemTl.from($(item).find('.top-roadmap--item-bar'), {
+                    y: -50,
+                    opacity: 0
+                });
                 itemTl.to($(item).find('.top-roadmap--item-text--inner, .top-roadmap--item-text--inner-sub'), {
                     x: 0,
                     y: 0,
@@ -80,10 +84,6 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
                 itemTl.to($(item).find('.top-roadmap--item-text--convo'), {
                     opacity: 1,
                     x: 0,
-                });
-                itemTl.from($(item).find('.top-roadmap--item-bar'), {
-                    y: -100,
-                    opacity: 0
                 });
                 return itemTl;
             }());

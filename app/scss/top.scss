@@ -459,6 +459,8 @@ body.top {
             }
 
             &--head {
+                z-index: 1;
+
                 @include mq(sp) {
                     display: flex;
                     flex-direction: column;
@@ -474,6 +476,7 @@ body.top {
                 margin-right: 60px;
                 margin-left: -35px;
                 position: relative;
+                z-index: 1;
 
                 @include mq(sp) {
                     width: 50px;
@@ -500,6 +503,7 @@ body.top {
                 height: 180px;
                 background-color: #4C5481;
                 margin: -1px 0;
+                z-index: -1;
 
                 @include mq(sp) {
                     flex: 1;
