@@ -51,8 +51,6 @@ body {
   @media all and (max-width: 679px) {
     body {
       font-size: 16px; } }
-  body.-active {
-    overflow: hidden; }
 
 a {
   text-decoration: none;

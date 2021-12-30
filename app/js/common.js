@@ -73,10 +73,32 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
 
     }
 
+    /* -----------------------------------------------------
+    Header HAM
+    ----------------------------------------------------- */
+    ns.headerMenu = function () {
+        if (mediaQuery.matches) {
+            //sp
+            $('.header-menu--item').click(function (e) {
+                $('.header-menu--item').removeClass('-active');
+                $(this).addClass('-active');
+            })
+
+            $('.header-menu--item').on('mouseover', function (e) {
+                $(this).addClass('-active');
+            })
+
+            $('.header-menu--item').on('mouseleave', function (e) {
+                $(this).removeClass('-active');
+            })
+        }
+    }
+
 })();
 
 
 $(function(){
     SOLWHALZ.common.scrollReveal();
     SOLWHALZ.common.navManager();
+    SOLWHALZ.common.headerMenu();
 });
