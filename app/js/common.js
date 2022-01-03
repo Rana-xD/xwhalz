@@ -19,7 +19,7 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
         var animations = $('.fade-in-down, .fade-in-up');
         animations.each(function () {
             var animation = this;
-            var y = -100;
+            var y = 100;
 
             if ($(animation).hasClass('fade-in-down')) {
                 y *= -1;
