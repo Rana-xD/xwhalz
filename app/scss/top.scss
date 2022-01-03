@@ -21,13 +21,29 @@ body.top {
             @include mq(sp, true) {
                 height: 100vh;
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
             }
 
             @include mq(sp) {
                 margin-bottom: 50px;
+            }
+        }
+
+        &--img {
+            width: 520px;
+            @include img_block();
+        }
+
+        &--text {
+
+            h1 {
+                margin-bottom: 45px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 90px;
+                text-align: center;
+                line-height: 1;
+                font-weight: 800;
             }
         }
 

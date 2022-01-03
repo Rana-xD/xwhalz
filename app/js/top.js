@@ -112,10 +112,24 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
         SOLWHALZ.top.roadMapAnimationST = treeST;
     }
 
+    /* -----------------------------------------------------
+    Top hero
+    ----------------------------------------------------- */
+    ns.hero = function () {
+        gsap.from($('.top-hero--img'), {
+            x: '-100%',
+            duration: 1,
+            scrollTrigger: {
+                trigger: $('.top-hero')
+            }
+        })
+    }
+
 })();
 
 
 $(function () {
     SOLWHALZ.top.showcasesSlider();
     SOLWHALZ.top.roadmapAnimation();
+    SOLWHALZ.top.hero();
 });

@@ -12,12 +12,22 @@ body.top {
     body.top .top-hero--upper {
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center; } }
   @media all and (max-width: 679px) {
     body.top .top-hero--upper {
       margin-bottom: 50px; } }
+  body.top .top-hero--img {
+    width: 520px; }
+    body.top .top-hero--img img {
+      width: 100%; }
+  body.top .top-hero--text h1 {
+    margin-bottom: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 90px;
+    text-align: center;
+    line-height: 1;
+    font-weight: 800; }
   body.top .top-hero--lower {
     position: relative; }
     @media all and (min-width: 680px) {
