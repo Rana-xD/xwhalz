@@ -34,34 +34,6 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
                 }
             }));
         });
-
-        function handleScroll() {
-            if ($window.scrollTop() === 0)
-            {
-                // remove previous animation to avoid the memory leak
-                allAnimations.forEach(function (animation) {
-                    animation.kill();
-                    // null means removing obj ref
-                    animation = null;
-                });
-                allAnimations = [];
-
-                // restart all animations
-                SOLWHALZ.common.scrollReveal();
-                SOLWHALZ.top.roadMapAnimationTL.restart();
-
-            }
-        }
-
-        function debounce(method, delay) {
-            clearTimeout(method._tId);
-            method._tId= setTimeout(function(){
-                method();
-            }, delay);
-        }
-        $window.on('scroll', function () {
-            debounce(handleScroll, 100);
-        });
     };
 
     /* -----------------------------------------------------
@@ -126,6 +98,33 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
         }
     }
 
+    /* -----------------------------------------------------
+    Scroll to top
+    ----------------------------------------------------- */
+    ns.scrollToTop = function () {
+        function handleScroll() {
+            if ($window.scrollTop() === 0)
+            {
+                // remove previous animation to avoid the memory leak
+                allAnimations.forEach(function (animation) {
+                    animation.kill();
+                    // null means removing obj ref
+                    animation = null;
+                });
+                allAnimations = [];
+
+                // restart all animations
+                SOLWHALZ.common.scrollReveal();
+                SOLWHALZ.top.roadMapAnimationTL.restart();
+
+            }
+        }
+
+        $window.on('scroll', function () {
+            handleScroll();
+        });
+    };
+
 })();
 
 
@@ -133,4 +132,5 @@ $(function(){
     SOLWHALZ.common.scrollReveal();
     SOLWHALZ.common.navManager();
     SOLWHALZ.common.headerMenu();
+    SOLWHALZ.common.scrollToTop();
 });
