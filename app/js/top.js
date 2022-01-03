@@ -4,6 +4,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
 
 (function () {
     var ns = SOLWHALZ.top;
+    ns.roadMapAnimationTL = '';
 
     var mediaQuery = matchMedia('(max-width: 679px)');
 
@@ -57,7 +58,6 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
     ns.roadmapAnimation = function () {
         var tree = $('.top-roadmap--item');
         var treeTl = gsap.timeline({
-                duration: 2,
                 scrollTrigger: {
                     trigger: $('.top-roadmap--content'),
                 }
@@ -69,25 +69,29 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
                 const itemTl = gsap.timeline();
                 itemTl.from($(item).find('.top-roadmap--item-icon'), {
                     y: -100,
-                    opacity: 0
+                    opacity: 0,
+                    duration: 0.5
                 });
                 itemTl.to($(item).find('.top-roadmap--item-text--inner, .top-roadmap--item-text--inner-sub'), {
                     x: 0,
                     y: 0,
                     opacity: 1,
+                    duration: 0.1
                 });
                 itemTl.to($(item).find('.top-roadmap--item-text--convo'), {
                     opacity: 1,
+                    duration: 0.5
                 }, '<');
                 itemTl.from($(item).find('.top-roadmap--item-bar'), {
                     y: -50,
                     opacity: 0,
-                    delay: 0.5
+                    delay: 0.5,
                 });
                 return itemTl;
             }());
 
         });
+        SOLWHALZ.top.roadMapAnimationTL = treeTl;
     }
 
 })();

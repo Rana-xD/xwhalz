@@ -3,33 +3,65 @@ if (!SOLWHALZ) SOLWHALZ = {};
 if (!SOLWHALZ.common) SOLWHALZ.common = {};
 
 (function (){
+    var allAnimations = [];
     var ns = SOLWHALZ.common;
     var mediaQuery = matchMedia('(max-width: 679px)');
     const $window = $(window);
 
     ns.mediaQuery = mediaQuery;
     ns.$window = $window;
+    ns.allAnimations = allAnimations ?? [];
 
     /* -----------------------------------------------------
     Scroll Animations
     ----------------------------------------------------- */
     ns.scrollReveal = function () {
-        var controller = new ScrollMagic.Controller();
+        var animations = $('.fade-in-down, .fade-in-up');
+        animations.each(function () {
+            var animation = this;
+            var y = -100;
 
-        $('.fade-in-down, .fade-in-up').each(function () {
-            addTrigger(this, this)
+            if ($(animation).hasClass('fade-in-down')) {
+                y *= -1;
+            }
+
+            gsap.set(animation, {y: y});
+            allAnimations.push(gsap.to(animation, {
+                opacity: 1,
+                y: 0,
+                scrollTrigger: {
+                    trigger: animation,
+                }
+            }));
         });
 
-        function addTrigger(trigger, element) {
-            new ScrollMagic.Scene({
-                triggerElement: trigger,
-                triggerHook: 0.9,
-                reverse: false
-            })
-                .setClassToggle(element, '-animated')
-                .addTo(controller);
+        function handleScroll() {
+            if ($window.scrollTop() === 0)
+            {
+                // remove previous animation to avoid the memory leak
+                allAnimations.forEach(function (animation) {
+                    animation.kill();
+                    // null means removing obj ref
+                    animation = null;
+                });
+                allAnimations = [];
 
+                // restart all animations
+                SOLWHALZ.common.scrollReveal();
+                SOLWHALZ.top.roadMapAnimationTL.restart();
+
+            }
         }
+
+        function debounce(method, delay) {
+            clearTimeout(method._tId);
+            method._tId= setTimeout(function(){
+                method();
+            }, delay);
+        }
+        $window.on('scroll', function () {
+            debounce(handleScroll, 100);
+        });
     };
 
     /* -----------------------------------------------------
