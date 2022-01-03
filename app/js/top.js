@@ -58,6 +58,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
     ns.roadmapAnimation = function () {
         var tree = $('.top-roadmap--item');
         var treeTl = gsap.timeline({
+                duration: 1,
                 scrollTrigger: {
                     trigger: $('.top-roadmap--content'),
                 }
