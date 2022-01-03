@@ -26,13 +26,21 @@ body.top {
             }
 
             @include mq(sp) {
+                justify-content: center;
+                flex-direction: column;
                 margin-bottom: 50px;
+                margin-top: -50px;
             }
         }
 
         &--img {
             width: 520px;
             @include img_block();
+
+            @include mq(sp) {
+                width: 80%;
+                margin: 0 auto 30px;
+            }
         }
 
         &--text {
@@ -44,6 +52,10 @@ body.top {
                 text-align: center;
                 line-height: 1;
                 font-weight: 800;
+
+                @include mq(sp) {
+                    font-size: 40px;
+                }
             }
         }
 
