@@ -4,7 +4,8 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
 
 (function () {
     var ns = SOLWHALZ.top;
-    ns.roadMapAnimationTL = '';
+    ns.roadMapAnimationTL = null;
+    ns.roadMapAnimationST = null;
 
     var mediaQuery = matchMedia('(max-width: 679px)');
 
@@ -57,35 +58,50 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
     ----------------------------------------------------- */
     ns.roadmapAnimation = function () {
         var tree = $('.top-roadmap--item');
-        var treeTl = gsap.timeline({
-                duration: 1,
-                scrollTrigger: {
-                    trigger: $('.top-roadmap--content'),
-                }
-            }
-        );
+        var treeTl = gsap.timeline();
+        var treeST = ScrollTrigger.create({
+            animation: treeTl,
+            trigger: $('.top-roadmap--content')
+        });
         tree.each(function () {
             var item = this;
             treeTl.add(function () {
                 const itemTl = gsap.timeline();
-                itemTl.from($(item).find('.top-roadmap--item-icon'), {
+                var icon = $(item).find('.top-roadmap--item-icon')
+                var texts = $(item).find('.top-roadmap--item-text--inner');
+                var textInners = $(item).find('.top-roadmap--item-text--inner-sub');
+                var convo = $(item).find('.top-roadmap--item-text--convo');
+                var bar = $(item).find('.top-roadmap--item-bar');
+
+                gsap.set(icon, {y: 0, opacity: 1});
+                if ($(item).hasClass('top-roadmap--item__left')) {
+                    gsap.set(texts, {x: '110%'});
+                    gsap.set(textInners, {x: '-100%', opacity: 0});
+                } else {
+                    gsap.set(texts, {x: '-110%'});
+                    gsap.set(textInners, {x: '100%', opacity: 0});
+                }
+                gsap.set(convo, {x: 0, opacity: 0});
+                gsap.set(bar, {y: 0, opacity: 0});
+
+                itemTl.from(icon, {
                     y: -100,
                     opacity: 0,
                     duration: 0.5
                 });
-                itemTl.to($(item).find('.top-roadmap--item-text--inner, .top-roadmap--item-text--inner-sub'), {
+                itemTl.to([texts, textInners], {
                     x: 0,
                     y: 0,
                     opacity: 1,
                     duration: 0.1
                 });
-                itemTl.to($(item).find('.top-roadmap--item-text--convo'), {
+                itemTl.to(convo, {
                     opacity: 1,
                     duration: 0.5
                 }, '<');
-                itemTl.from($(item).find('.top-roadmap--item-bar'), {
-                    y: -50,
-                    opacity: 0,
+                itemTl.to(bar, {
+                    y: 0,
+                    opacity: 1,
                     delay: 0.5,
                 });
                 return itemTl;
@@ -93,6 +109,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
 
         });
         SOLWHALZ.top.roadMapAnimationTL = treeTl;
+        SOLWHALZ.top.roadMapAnimationST = treeST;
     }
 
 })();

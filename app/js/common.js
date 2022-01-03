@@ -15,25 +15,27 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
     /* -----------------------------------------------------
     Scroll Animations
     ----------------------------------------------------- */
+    /* -----------------------------------------------------
+    Scroll Animations
+    ----------------------------------------------------- */
     ns.scrollReveal = function () {
-        var animations = $('.fade-in-down, .fade-in-up');
-        animations.each(function () {
-            var animation = this;
-            var y = 100;
+        var controller = new ScrollMagic.Controller();
 
-            if ($(animation).hasClass('fade-in-down')) {
-                y *= -1;
-            }
-
-            gsap.set(animation, {y: y});
-            allAnimations.push(gsap.to(animation, {
-                opacity: 1,
-                y: 0,
-                scrollTrigger: {
-                    trigger: animation,
-                }
-            }));
+        $('.fade-in-down, .fade-in-up').each(function () {
+            $(this).removeClass('-animated');
+            addTrigger(this, this)
         });
+
+        function addTrigger(trigger, element) {
+            new ScrollMagic.Scene({
+                triggerElement: trigger,
+                triggerHook: 0.9,
+                reverse: false
+            })
+                .setClassToggle(element, '-animated')
+                .addTo(controller);
+
+        }
     };
 
     /* -----------------------------------------------------
@@ -105,17 +107,11 @@ if (!SOLWHALZ.common) SOLWHALZ.common = {};
         function handleScroll() {
             if ($window.scrollTop() === 0)
             {
-                // remove previous animation to avoid the memory leak
-                allAnimations.forEach(function (animation) {
-                    animation.kill();
-                    // null means removing obj ref
-                    animation = null;
-                });
-                allAnimations = [];
-
                 // restart all animations
                 SOLWHALZ.common.scrollReveal();
-                SOLWHALZ.top.roadMapAnimationTL.restart();
+
+                SOLWHALZ.top.roadMapAnimationTL.kill();
+                SOLWHALZ.top.roadmapAnimation();
 
             }
         }
