@@ -74,7 +74,7 @@ if (!SOLWHALZ.top) SOLWHALZ.top = {};
                 var bar = $(item).find('.top-roadmap--item-bar');
 
                 gsap.set(icon, {y: 0, opacity: 1});
-                if ($(item).hasClass('top-roadmap--item__left')) {
+                if ($(item).hasClass('top-roadmap--item__left') && !mediaQuery.matches) {
                     gsap.set(texts, {x: '110%'});
                     gsap.set(textInners, {x: '-100%', opacity: 0});
                 } else {
