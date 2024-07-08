@@ -67,6 +67,12 @@ gulp.task('fonts',  async function() {
     .pipe(gulp.dest('dist/fonts'))
 })
 
+// Copying fonts 
+gulp.task('js',  async function() {
+  return gulp.src('app/js/**/*')
+    .pipe(gulp.dest('dist/js'))
+})
+
 // Cleaning 
 gulp.task('clean', function() {
   return del.sync('dist').then(function(cb) {
@@ -91,7 +97,7 @@ gulp.task('build', async function(callback) {
   runSequence(
     'clean:dist',
     'sass',
-    ['useref', 'images', 'fonts'],
+    ['useref', 'images', 'fonts','js'],
     callback
   )
 })
